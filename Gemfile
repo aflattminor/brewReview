@@ -21,6 +21,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'devise'
 end
 
 group :test do
