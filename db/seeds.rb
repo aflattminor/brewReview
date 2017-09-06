@@ -8,7 +8,9 @@ Brewpub.create(
   website_url: 'http://philadelphiabrewing.com/',
   img_url: 'http://www.ballparksandbrews.com/wp-content/uploads/2011/08/100_5781.jpg',
   logo_url: 'http://philadelphiabrewing.com/wp-content/uploads/2016/12/PhilaBrewLogo.png',
-  phone_number: '(215)427-2739'
+  phone_number: '215-427-2739',
+  contact_email: '123@abc.com',
+  creator_id: 1
 )
 
 Brewpub.create(
@@ -17,11 +19,13 @@ Brewpub.create(
   city: 'Philadelphia',
   state: 'PA',
   zip: '19123',
-  description: '',
+  description: 'Brew pub ',
   website_url: 'http://www.yardsbrewing.com/',
   img_url: 'http://philly.thedrinknation.com/images/stores/YardsBrewing.jpg',
   logo_url: 'http://www.yardsbrewing.com/assets/img/yards-logo-home.svg',
-  phone_number: '(215)634-2600'
+  phone_number: '215-634-2600',
+  contact_email: '1234@gfc.com',
+  creator_id: 2
 )
 
 User.create(
