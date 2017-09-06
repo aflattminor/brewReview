@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'static_pages#index'
+  root to: redirect('/brewpubs')
 
-  resources :brewpubs, only: [:index]
+  resources :brewpubs do
+    resources :reviews
+  end
   resources :users
 end

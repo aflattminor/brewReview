@@ -1,0 +1,35 @@
+<h1><%= @brewpub.name %></h1>
+<h1><%= @brewpub.address %></h1>
+<h1><%= @brewpub.city %></h1>
+<h1><%= @brewpub.state %></h1>
+<h1><%= @brewpub.zip %></h1>
+<h1><%= @brewpub.description %></h1>
+<br/>
+
+<h2> Add a Review</h2>
+<%= form_for [@brewpub, @review] do |f| %>
+  <%= f.label :rating %><br/>
+  <%= f.text_field :rating, value:"rating (1-5)" %><br />
+
+  <%= f.label :header %><br/>
+  <%= f.text_field :header, value:"title" %><br />
+
+  <%= f.label :body %><br/>
+  <%= f.text_area :body, value:"review" %><br />
+
+  <%= f.submit 'Add Review' %>
+<% end %>
+<br/>
+<h2>REVIEWS</h2>
+
+<ul>
+  <% if @reviews %>
+    <% @reviews.each do |review| %>
+    <ul>
+      <h2>Rating: <%= review.rating %> </h2>
+      <h2> <%= review.header %> </h2>
+      <p>  <%= review.body %> </p>
+    </ul>
+    <% end %>
+  <% end %>
+</ul>
