@@ -52,4 +52,11 @@ class BrewpubsController <ApplicationController
       raise ActionController::RoutingError.new("Not Found")
     end
   end
+
+  def show
+    @brewpub = Brewpub.find(params[:id])
+    @review = Review.new
+    @review.brewpub = @brewpub
+    @reviews=@brewpub.reviews
+  end
 end

@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :brewpub do
+    id 1
     name "Yards Brewing"
     address "901 N Delaware Ave"
     city "Philadelphia"
