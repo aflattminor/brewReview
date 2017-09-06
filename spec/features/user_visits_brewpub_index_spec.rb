@@ -2,6 +2,12 @@ require 'rails_helper'
 
 feature "user visits brewpub index" do
   scenario "user visits the index page" do
+    visit "/"
+    user = create(:user)
+    click_link "Sign in"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_button 'Log in'
     brewpub = create(:brewpub)
     visit "/"
     expect(page).to_not have_content("Yards")
