@@ -1,3 +1,4 @@
+Brewpub.destroy_all
 Brewpub.create(
   name: 'Philadelphia Brewing Co.',
   address: '2440 Frankford Ave',
@@ -10,7 +11,7 @@ Brewpub.create(
   logo_url: 'http://philadelphiabrewing.com/wp-content/uploads/2016/12/PhilaBrewLogo.png',
   phone_number: '215-427-2739',
   contact_email: '123@abc.com',
-  creator_id: 1
+  user_id: 1
 )
 
 Brewpub.create(
@@ -25,13 +26,14 @@ Brewpub.create(
   logo_url: 'http://www.yardsbrewing.com/assets/img/yards-logo-home.svg',
   phone_number: '215-634-2600',
   contact_email: '1234@gfc.com',
-  creator_id: 2
+  user_id: 2
 )
-
+User.destroy_all
 User.create(
   email: "MichaelJennings@gmail.com",
   password: "123456",
-  password_confirmation: "123456"
+  password_confirmation: "123456",
+  admin: true
 )
 
 User.create(

@@ -12,6 +12,6 @@ FactoryGirl.define do
     logo_url "https://abc.com"
     phone_number "215-634-2600"
     contact_email "hello@yards.com"
-    creator_id 1
+    user
   end
 end

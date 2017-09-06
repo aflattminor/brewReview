@@ -12,7 +12,7 @@ class CreateBrewpubs < ActiveRecord::Migration[5.1]
       t.string :logo_url, null: false
       t.string :phone_number, null: false
       t.string :contact_email, null: false
-      t.integer :creator_id, null: false
+      t.integer :user_id, null: false
       t.integer :rating
       t.string :hours
       t.string :beers
