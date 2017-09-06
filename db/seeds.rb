@@ -1,7 +1,25 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# require 'faker'
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# 5.times do
+#   Brewpub.create(
+#     name:
+#     address:
+#     city:
+#     state:
+#     zip:
+#     description:
+#     website_url:
+#     img_url:
+#     logo_url:
+#     phone_number:
+#     contact_email:
+#     creator_id:
+#     rating:
+#     hours:
+#     beers:
+#     tours:
+#     facebook_url:
+#     twitter_url:
+#     instagram_url:
+#   )
+# end
