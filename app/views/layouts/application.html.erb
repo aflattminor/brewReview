@@ -8,20 +8,23 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <nav class="topnav" id="myTopnav">
-    <% if user_signed_in? %>
-      <div class=username>Signed in as <%= current_user.email %></div>
-      <div class=signin><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
-    <% else%>
-      <div class=signin>
-        <%= link_to "Sign up", new_user_registration_path %>
-        <%= link_to "Sign in", new_user_session_path %>
-      </div>
-    <%end%>
-    <div class=navigation><%= link_to "Home", brewpubs_path %></div>
-  </nav>
+
 
   <body>
+
+    <nav class="topnav" id="myTopnav">
+      <div class=navigation><%= link_to "Home", brewpubs_path %></div>
+      <% if user_signed_in? %>
+        <div class=username>Signed in as <%= current_user.email %></div>
+        <div class=signin><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
+      <% else%>
+        <div class=signin>
+          <%= link_to "Sign up", new_user_registration_path %>
+          <%= link_to "Sign in", new_user_session_path %>
+        </div>
+      <%end%>
+    </nav>
+
     <%flash.each do |key, value|%>
       <%=value%>
     <%end%>
