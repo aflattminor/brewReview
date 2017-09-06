@@ -28,4 +28,6 @@ class Brewpub < ApplicationRecord
   validates_format_of :contact_email, with: /[\+A-Z0-9\._%-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}/i, message: "should be in the form abc@123.com"
 
   validates :creator_id, presence: true
+
+  has_many :reviews
 end
