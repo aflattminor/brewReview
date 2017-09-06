@@ -1,3 +1,17 @@
+User.destroy_all
+User.create(
+  email: "MichaelJennings@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  admin: true
+)
+
+User.create(
+  email: "AlexLuna@gmail.com",
+  password: "123456",
+  password_confirmation: "123456"
+)
+
 Brewpub.destroy_all
 Brewpub.create(
   name: 'Philadelphia Brewing Co.',
@@ -27,17 +41,4 @@ Brewpub.create(
   phone_number: '215-634-2600',
   contact_email: '1234@gfc.com',
   user_id: 2
-)
-User.destroy_all
-User.create(
-  email: "MichaelJennings@gmail.com",
-  password: "123456",
-  password_confirmation: "123456",
-  admin: true
-)
-
-User.create(
-  email: "AlexLuna@gmail.com",
-  password: "123456",
-  password_confirmation: "123456"
 )
