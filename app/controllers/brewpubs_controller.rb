@@ -10,6 +10,13 @@ class BrewpubsController <ApplicationController
     @brewpub = Brewpub.new
   end
 
+  def show
+    @brewpub = Brewpub.find(params[:id])
+    @review = Review.new
+    @review.brewpub = @brewpub
+    @reviews=@brewpub.reviews
+  end
+
   def create
     @brewpub = Brewpub.create(brewpub_params)
     @brewpub.user = current_user
@@ -19,11 +26,6 @@ class BrewpubsController <ApplicationController
       flash[:alert] = @brewpub.errors.full_messages.join(',')
       render :new
     end
-  end
-
-  def show
-    @brewpub = Brewpub.find(params[:id])
-    # @reviews = @brewpub.reviews
   end
 
   def edit
@@ -41,7 +43,6 @@ class BrewpubsController <ApplicationController
     end
   end
 
-
   protected
   def brewpub_params
     params.require(:brewpub).permit(:name, :address, :city, :state, :zip, :description, :website_url, :img_url, :logo_url, :phone_number, :contact_email, :user_id)
@@ -53,10 +54,4 @@ class BrewpubsController <ApplicationController
     end
   end
 
-  def show
-    @brewpub = Brewpub.find(params[:id])
-    @review = Review.new
-    @review.brewpub = @brewpub
-    @reviews=@brewpub.reviews
-  end
 end
