@@ -1,6 +1,7 @@
 import BrewpubsShowContainer from '../../src/containers/BrewpubsShowContainer';
 import BrewpubComponent from '../../src/components/BrewpubComponent';
 import ReviewComponent from '../../src/components/ReviewComponent';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 describe('BrewpubsShowContainer', () => {
   let wrapper;
@@ -99,13 +100,6 @@ describe('BrewpubsShowContainer', () => {
       }),
       done();
     }, 0)
-  })
-
-  it('should render an anchor tag', done => {
-    setTimeout(() => {
-      expect(wrapper.find('h1')).toBePresent();
-    }, 0)
-    done();
   })
 
 

@@ -12,7 +12,8 @@ class BrewpubsShowContainer extends Component {
   }
 
   componentDidMount(){
-    fetch(`/api/v1/${this.props.location.pathname}/`)
+    let url = location.pathname
+    fetch(`/api/v1/${url}/`)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -23,7 +24,6 @@ class BrewpubsShowContainer extends Component {
       }
     })
     .then(body => {
-      debugger;
       this.setState({
         brewpub: body[0],
         reviews: body[1]
@@ -33,7 +33,6 @@ class BrewpubsShowContainer extends Component {
   }
 
   render() {
-    debugger;
     let reviewComponents = this.state.reviews.map((review) => {
       return (
         <ReviewComponent
