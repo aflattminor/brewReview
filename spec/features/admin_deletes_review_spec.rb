@@ -33,6 +33,8 @@ feature " Only Admin can delete a review" do
 
     expect(page).to have_content("review deleted")
     expect(page).to have_content("Victory")
+    expect(page).to_not have_content("No one cares")
+    expect(page).to_not have_content("I like it")
   end
 
     scenario "un-authenticated user cannot deletes a review" do
@@ -60,10 +62,5 @@ feature " Only Admin can delete a review" do
       fill_in "Body", with: "I like it "
       click_button "Add Review"
       expect(page).to_not have_button("Delete This Review")
-      expect(page).to_not have_content("No one cares")
-      expect(page).to_not have_content("I like it")
-
     end
-
-
-end
+  end
