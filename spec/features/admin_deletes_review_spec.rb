@@ -60,6 +60,9 @@ feature " Only Admin can delete a review" do
       fill_in "Body", with: "I like it "
       click_button "Add Review"
       expect(page).to_not have_button("Delete This Review")
+      expect(page).to_not have_content("No one cares")
+      expect(page).to_not have_content("I like it")
+
     end
 
 
