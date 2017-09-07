@@ -2,7 +2,7 @@
 
 ![Build Status](https://codeship.com/projects/0dcf82e0-748b-0135-298f-6261ba794a34/status?branch=master)
 ![Code Climate](https://codeclimate.com/github/Luna2442/brewReivew.png)
-![Coverage Status](https://coveralls.io/repos/github/Luna2442/brewReivew/badge.png)
+![Coverage Status](https://coveralls.io/repos/github/Luna2442/brewReview/badge.svg?branch=master)
 
 <!-- This repository has all the code necessary for starting a React on Rails application
 including testing. To get started, just clone the repository down and get started using
