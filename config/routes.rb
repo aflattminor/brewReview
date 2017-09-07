@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: redirect('/brewpubs')
+  devise_for :users
+
+  resources :users do
+    resources :brewpubs
+  end
 
   resources :brewpubs do
     resources :reviews
   end
-  resources :users
+
+  resources :reviews
+
 end
