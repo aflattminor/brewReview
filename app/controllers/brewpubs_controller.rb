@@ -21,7 +21,7 @@ class BrewpubsController <ApplicationController
     @brewpub = Brewpub.create(brewpub_params)
     @brewpub.user = current_user
     if @brewpub.save
-      redirect_to root_path, notice: "Brewpub added successfully"
+      redirect_to @brewpub, notice: "Brewpub added successfully"
     else
       flash[:alert] = @brewpub.errors.full_messages.join(',')
       render :new
@@ -34,14 +34,14 @@ class BrewpubsController <ApplicationController
 
   def update
     @brewpub = Brewpub.find(params[:id])
-    # This doesn't save yet
     if @brewpub.update(brewpub_params)
-      redirect_to brewpubs_path, notice: "successfully updated"
+      redirect_to @brewpub, notice: "successfully updated"
     else
       render :edit
       flash[:alert] = "Pub not saved"
     end
   end
+
 
   protected
   def brewpub_params

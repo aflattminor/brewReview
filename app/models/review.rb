@@ -3,5 +3,6 @@ class Review < ApplicationRecord
   validates :brewpub_id, presence: true
   validates :rating, presence: true
 
+  has_many :votes, :as => :votable
   belongs_to :brewpub
 end
