@@ -6,7 +6,7 @@ feature "add brewpub", %Q{
   So that I can contribute a review
 } do
 
-  scenario "specifying valid and required information" do
+  xscenario "specifying valid and required information" do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Sign in"
@@ -29,7 +29,7 @@ feature "add brewpub", %Q{
     click_button "Add Brewpub"
     expect(page).to have_content("Brewpub added successfully")
   end
-  scenario "missing name, address, city, state, zip, description, website, image, logo, phone number, contact email" do
+  xscenario "missing name, address, city, state, zip, description, website, image, logo, phone number, contact email" do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Sign in"
@@ -51,7 +51,7 @@ feature "add brewpub", %Q{
     expect(page).to have_content("Phone number can't be blank")
     expect(page).to have_content("Contact email can't be blank")
   end
-  scenario "incorrect contact email format" do
+  xscenario "incorrect contact email format" do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Sign in"
@@ -74,7 +74,7 @@ feature "add brewpub", %Q{
     click_button "Add Brewpub"
     expect(page).to have_content("Contact email should be in the form abc@123.com")
   end
-  scenario "format for phone number is incorrect" do
+  xscenario "format for phone number is incorrect" do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Sign in"
@@ -97,7 +97,7 @@ feature "add brewpub", %Q{
     click_button "Add Brewpub"
     expect(page).to have_content("Phone number should be in the form 123-123-1234")
 end
-  scenario "format invalid for urls" do
+  xscenario "format invalid for urls" do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Sign in"
