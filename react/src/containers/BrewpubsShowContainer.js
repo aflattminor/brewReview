@@ -13,10 +13,20 @@ class BrewpubsShowContainer extends Component {
     this.addReview = this.addReview.bind(this)
   }
 
-  addReview(itemPayload) {
-    this.setState({ reviews: this.state.reviews.concat(itemPayload) })
+  addReview(formPayload) {
+    let path = location.pathname
+    fetch(`/api/v1/reviews`, {
+      method: 'POST',
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => {
+      let newReview = response.json()
+      return newReview
+    })
+    .then(newReview => {
+      this.setState({ reviews: [newReview, ...this.state.reviews] })
+    })
   }
-
 
   componentDidMount(){
     let path = location.pathname
@@ -81,7 +91,7 @@ class BrewpubsShowContainer extends Component {
         <h1>Reviews</h1>
         {reviewComponents}
         <hr />
-        <ReviewForm brewpubId={this.state.brewpub_id} submitFunction={this.addReview}/>
+        <ReviewForm brewpubId={this.state.brewpub.id} submitFunction={this.addReview}/>
       </div>
     )
   }

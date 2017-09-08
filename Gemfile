@@ -10,7 +10,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'faker'
-gem 'responders'
 gem 'react-rails'
 gem 'carrierwave', '~> 1.0'
 

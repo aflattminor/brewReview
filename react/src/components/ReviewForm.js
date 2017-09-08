@@ -56,11 +56,12 @@ class ReviewForm extends Component {
     }
 
     let formPayLoad = {
+      user_id: 1,
       brewpub_id: this.props.brewpubId,
-      user_id: this.props.userId,
       rating: formattedRating,
       header: this.state.header,
-      body: this.state.body
+      body: this.state.body,
+      vote_count: 0
     }
 
     this.props.submitFunction(formPayLoad)
@@ -70,7 +71,6 @@ class ReviewForm extends Component {
 
 
   render() {
-
     return(
       <form className="review-form" id="review-form" onSubmit={this.handleFormSubmit}>
 
