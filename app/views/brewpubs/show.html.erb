@@ -6,6 +6,12 @@
 <h1><%= @brewpub.description %></h1>
 <br/>
 
+<%  if user_signed_in? && current_user.admin?%>
+<%= link_to "Edit Brewpub", edit_brewpub_path %>
+<%end%>
+
+
+
 <h2> Add a Review</h2>
 <%= form_for [@brewpub, @review] do |f| %>
   <%= f.label :rating %><br/>
@@ -24,12 +30,15 @@
 
 <ul>
   <% if @reviews %>
-    <% @reviews.each do |review| %>
-    <ul>
-      <h2>Rating: <%= review.rating %> </h2>
-      <h2> <%= review.header %> </h2>
-      <p>  <%= review.body %> </p>
-    </ul>
-    <% end %>
+  <% @reviews.each do |review| %>
+  <ul>
+    <h2>Rating: <%= review.rating %> </h2>
+    <h2> <%= review.header %> </h2>
+    <p>  <%= review.body %> </p>
+  </ul>
+      <%if user_signed_in? && current_user.admin?%>
+      <%= button_to "Delete This Review", brewpub_review_path( @brewpub, review), method: :delete %>
+      <%end%>
+  <% end %>
   <% end %>
 </ul>
