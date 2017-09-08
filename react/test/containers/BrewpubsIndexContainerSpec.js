@@ -40,13 +40,13 @@ describe('BrewpubsIndexContainer', () => {
         }]
       })
       done();
-    }, 0)
+    }, 1000)
   })
 
   it('should render an anchor tag', done => {
     setTimeout(() => {
-      expect(wrapper.find('h1')).toBePresent();
-    }, 0)
+      expect(wrapper.contains(<h1>Yards Brewing</h1>)).to.equal(true);
+    }, 1000)
     done();
   })
 

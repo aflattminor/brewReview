@@ -102,5 +102,37 @@ describe('BrewpubsShowContainer', () => {
     }, 0)
   })
 
+  it('should render the brewpub info', done => {
+    setTimeout(() => {
+      expect(wrapper.contains([
+        <h1>Philadelphia Brewing Co.</h1>,
+        <h2>2440 Frankford Ave</h2>,
+        <h2>Philadelphia</h2>,
+        <h2>19125</h2>,
+        <h2>A brew company in Philly.</h2>,
+        <h2>215-427-2739</h2>
+      ])).to.equal(true);
+    }, 1000)
+    done();
+  })
+
+  it('should render a h1 tag for the review header', done => {
+    setTimeout(() => {
+      expect(wrapper.find('h1').last().text()).toEqual('Reviews');
+    }, 1000)
+    done();
+  })
+
+  it('should render a review with proper info', done => {
+    setTimeout(() => {
+      expect(wrapper.contains([
+        <h2>Rating: 5</h2>,
+        <h2>header</h2>,
+        <h2>body</h2>
+      ])).to.equal(true);
+    }, 1000)
+    done();
+  })
+
 
 })

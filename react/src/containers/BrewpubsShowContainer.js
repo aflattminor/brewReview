@@ -12,8 +12,8 @@ class BrewpubsShowContainer extends Component {
   }
 
   componentDidMount(){
-    let url = location.pathname
-    fetch(`/api/v1/${url}/`)
+    let path = location.pathname
+    fetch(`/api/v1/${path}/`)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -71,7 +71,7 @@ class BrewpubsShowContainer extends Component {
           instagram_url = {this.state.brewpub.instagram_url}
         />
         <hr />
-        <h1> Reviews </h1>
+        <h1>Reviews</h1>
         {reviewComponents}
       </div>
     )
