@@ -45,8 +45,10 @@ class BrewpubsIndexContainer extends Component {
 
     return(
       <div>
-        <h1>Brewpubs</h1>
-        {brewpubComponents}
+        <div>
+          <h1>Brewpubs</h1>
+          {brewpubComponents}
+        </div>
       </div>
     )
   }

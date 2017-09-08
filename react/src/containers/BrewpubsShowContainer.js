@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import BrewpubComponent from '../components/BrewpubComponent'
-import ReviewComponent from '../components/ReviewComponent'
+import BrewpubComponent from '../components/BrewpubComponent';
+import ReviewComponent from '../components/ReviewComponent';
+import ReviewForm from '../components/ReviewForm';
 
 class BrewpubsShowContainer extends Component {
   constructor(props){
@@ -9,7 +10,13 @@ class BrewpubsShowContainer extends Component {
       brewpub: {},
       reviews: []
     }
+    this.addReview = this.addReview.bind(this)
   }
+
+  addReview(itemPayload) {
+    this.setState({ reviews: this.state.reviews.concat(itemPayload) })
+  }
+
 
   componentDidMount(){
     let path = location.pathname
@@ -73,6 +80,8 @@ class BrewpubsShowContainer extends Component {
         <hr />
         <h1>Reviews</h1>
         {reviewComponents}
+        <hr />
+        <ReviewForm brewpubId={this.state.brewpub_id} submitFunction={this.addReview}/>
       </div>
     )
   }
