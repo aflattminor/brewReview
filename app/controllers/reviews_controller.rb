@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+
+
   def create
     @brewpub = Brewpub.find(params[:brewpub_id])
     @reviews = @brewpub.reviews.order(created_at: :desc)

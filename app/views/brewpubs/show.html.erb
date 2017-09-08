@@ -11,9 +11,9 @@
 <%end%>
 
 
-
-<h2> Add a Review</h2>
-<%= form_for [@brewpub, @review] do |f| %>
+<%  if user_signed_in?%>
+  <h2> Add a Review</h2>
+  <%= form_for [@brewpub, @review] do |f| %>
   <%= f.label :rating %><br/>
   <%= f.text_field :rating %><br />
 
@@ -24,7 +24,8 @@
   <%= f.text_area :body %><br />
 
   <%= f.submit 'Add Review' %>
-<% end %>
+  <% end %>
+<%end%>
 <br/>
 <h2>REVIEWS</h2>
 
