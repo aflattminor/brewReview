@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "user visits brewpub index" do
-  scenario "user visits the index page" do
+  xscenario "user visits the index page" do
     visit "/"
     user = create(:user)
     click_link "Sign in"
