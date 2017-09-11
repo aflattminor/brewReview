@@ -29,8 +29,8 @@ RSpec.describe Api::V1::BrewpubsController, type: :controller do
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      expect(returned_json["brewpub"]["name"]).to eq "Yards Brewing"
-      expect(returned_json["brewpub"]["id"]).to eq 1
+      expect(returned_json[0]["name"]).to eq "Yards Brewing"
+      expect(returned_json[0]["id"]).to eq 1
     end
   end
 end
