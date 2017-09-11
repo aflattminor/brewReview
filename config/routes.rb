@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # React routing
   devise_for :users, controllers: { sessions: 'users/sessions' }
   resources :users
-  resources :brewpubs, only: [:new, :create, :destroy, :update]
+  resources :brewpubs, only: [:new, :create, :edit, :update, :destroy]
 
   namespace :api do
     namespace :v1 do
@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   end
 
   root to: redirect('/brewpubs')
-  resources :brewpubs, only: [:index, :show], to: 'static_pages#index'
+  resources :brewpubs, only: [:index, :show, :edit, :update], to: 'static_pages#index'
 
 end
