@@ -16,6 +16,7 @@ class BrewpubsShowContainer extends Component {
   addReview(formPayload) {
     let path = location.pathname
     fetch(`/api/v1/${path}/reviews`, {
+      credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(formPayload)
     })

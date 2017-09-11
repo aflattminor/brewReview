@@ -17,6 +17,7 @@
       <% if user_signed_in? %>
         <div class=username>Signed in as <%= current_user.email %></div>
         <div class=signin><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
+        <a href="/brewpubs/new">Add New Brewpub</a>
       <% else%>
         <div class=signin>
           <%= link_to "Sign up", new_user_registration_path %>
