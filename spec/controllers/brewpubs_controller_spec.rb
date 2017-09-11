@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe BrewpubsController, type: :controller do
-  let!(:brewpub) {create(:brewpub)}
 login_admin
   it "creates brewpub" do
     post :create, params: {brewpub: {
-        id: 10,
+        id: 100,
         name: "Victory",
         address: "123 North Street",
         city: "Philadelphia",
@@ -19,11 +18,11 @@ login_admin
         contact_email: "George@gmail.com"
     }}
     expect(response.status).to eq 302
-    expect(Brewpub.count).to eq(2)
+    expect(Brewpub.count).to eq(1)
   end
 
   it "updates brewpub" do
-    # binding.pry
+    brewpub_1 = create(:brewpub)
     post :update, params: {id: 1, brewpub: {
         id: 1,
         name: "Victo",
