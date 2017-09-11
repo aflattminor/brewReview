@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import BrewpubComponent from '../components/BrewpubComponent'
-import ReviewComponent from '../components/ReviewComponent'
+import BrewpubComponent from '../components/BrewpubComponent';
+import ReviewComponent from '../components/ReviewComponent';
+import ReviewForm from '../components/ReviewForm';
 
 class BrewpubsShowContainer extends Component {
   constructor(props){
@@ -9,6 +10,22 @@ class BrewpubsShowContainer extends Component {
       brewpub: {},
       reviews: []
     }
+    this.addReview = this.addReview.bind(this)
+  }
+
+  addReview(formPayload) {
+    let path = location.pathname
+    fetch(`/api/v1/reviews`, {
+      method: 'POST',
+      body: JSON.stringify(formPayload)
+    })
+    .then(response => {
+      let newReview = response.json()
+      return newReview
+    })
+    .then(newReview => {
+      this.setState({ reviews: [newReview, ...this.state.reviews] })
+    })
   }
 
   componentDidMount(){
@@ -73,6 +90,8 @@ class BrewpubsShowContainer extends Component {
         <hr />
         <h1>Reviews</h1>
         {reviewComponents}
+        <hr />
+        <ReviewForm brewpubId={this.state.brewpub.id} submitFunction={this.addReview}/>
       </div>
     )
   }
