@@ -5,7 +5,7 @@ RSpec.describe BrewpubsController, type: :controller do
 login_admin
   it "creates brewpub" do
     post :create, params: {brewpub: {
-        id: 2,
+        id: 10,
         name: "Victory",
         address: "123 North Street",
         city: "Philadelphia",
