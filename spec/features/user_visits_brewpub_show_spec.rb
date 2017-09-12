@@ -50,4 +50,5 @@ feature "user visits brewpub show page" do
     expect(page).to have_content("Best Brewery Ever!")
     expect(page).to have_content("OMG SO GOOD.  PERFECT")
   end
+
 end
