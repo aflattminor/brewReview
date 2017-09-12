@@ -2,12 +2,15 @@ require "rails_helper"
 
 RSpec.describe Api::V1::ReviewsController, type: :controller do
   let!(:first_brewpub) { create(:brewpub) }
+  let!(:user) { create(:user) }
   let!(:newReview) { Review.create(rating: 3, header: "Here's a Review Header", body: "I got your review right here buddy.", brewpub_id: 1, user_id: 1, vote_count: 0) }
 
   describe "POST#create" do
     it "returns the json of the newly posted review" do
 
-      post :create, params: { brewpub_id: 1}, body: {rating: 3, header: "Here's a Review Header", body: "I got your review right here buddy.", brewpub_id: 1, user_id: 1, vote_count: 0}.to_json, format: :json
+      sign_in user
+
+      post :create, params: { brewpub_id: 1, user_id: 1}, body: {rating: 3, header: "Here's a Review Header", body: "I got your review right here buddy.", brewpub_id: 1, user_id: 1, vote_count: 0}.to_json, format: :json
 
 
       returned_json = JSON.parse(response.body)
