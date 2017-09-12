@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :brewpubs, only: [:index, :show] do
-        resources :reviews
+        resources :reviews do
+          resources :votes
+        end 
       end
     end
   end
