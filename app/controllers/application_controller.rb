@@ -15,12 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def authenticate_user
-    if !user_signed_in?
-      raise ActionController::RoutingError.new("You must be signed in!")
-    end
-  end
-
   def initialize_session
     session["init"] = true
   end

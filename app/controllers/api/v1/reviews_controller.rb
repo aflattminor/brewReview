@@ -3,7 +3,7 @@ require 'pry'
 class Api::V1::ReviewsController < ApplicationController
 
   #needs user authentication feature from devise
-  # before_action :authenticate_user
+  before_action :authenticate_user!
   skip_before_action :verify_authenticity_token
 
   def create
