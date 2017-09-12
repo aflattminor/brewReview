@@ -6,8 +6,14 @@ class BrewpubsIndexContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      brewpubs: []
+      brewpubs: [],
+      search: ''
     }
+    this.updateSearch = this.updateSearch.bind(this)
+  }
+
+  updateSearch(event) {
+    this.setState({search: event.target.value.substr(0, 20)});
   }
 
   componentDidMount(){
@@ -43,11 +49,39 @@ class BrewpubsIndexContainer extends Component {
       )
     })
 
+    let filteredBrewpubs = this.state.brewpubs.filter(
+      (brewpub) => {
+        return brewpub.name.toLowerCase().indexOf(
+          this.state.search.toLowerCase()) !== -1;
+      }
+
+    )
     return(
       <div>
         <div>
           <h1>Brewpubs</h1>
-          {brewpubComponents}
+          <form>
+          <input className="Search"
+            type="text"
+            name="Search"
+            placeholder="Search"
+            value={this.state.search}
+            onChange={this.updateSearch}
+          />
+          </form>
+          <div>
+            <ul>
+              {filteredBrewpubs.map((brewpub)=>{
+                return  <Link to={`/brewpubs/${brewpub.id}`} key={brewpub.id}>
+                          <BrewpubComponent
+                            key = {brewpub.id}
+                            id = {brewpub.id}
+                            name = {brewpub.name}
+                            />
+                        </Link>
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     )
