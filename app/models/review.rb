@@ -5,4 +5,5 @@ class Review < ApplicationRecord
 
   has_many :votes, :as => :votable
   belongs_to :brewpub
+  belongs_to :user
 end
