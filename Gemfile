@@ -13,6 +13,7 @@ gem 'faker'
 gem 'react-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'simplecov', :require => false, :group => :test
+gem 'fog'
 
 group :development, :test do
   gem 'listen', '~> 3.0.5'
@@ -26,6 +27,8 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'devise'
+  gem "dotenv-rails"
+
 end
 
 group :test do
