@@ -8,9 +8,26 @@ class BrewpubsShowContainer extends Component {
     super(props);
     this.state = {
       brewpub: {},
-      reviews: []
+      reviews: [],
+      rating: null
     }
     this.addReview = this.addReview.bind(this)
+    this.aggregateReview = this.aggregateReview.bind(this)
+  }
+
+  aggregateReview(){
+    setTimeout(function(){let path = location.pathname
+      fetch(`/api/v1/${path}/`)
+      .then(response => {
+        return response.json();
+      })
+      .then(body => {
+        this.setState({
+          brewpub: body[0],
+          reviews: body[1],
+          rating: body[2]
+        })
+      })}.bind(this), 100)
   }
 
   addReview(formPayload) {
@@ -20,13 +37,7 @@ class BrewpubsShowContainer extends Component {
       method: 'POST',
       body: JSON.stringify(formPayload)
     })
-    .then(response => {
-      let newReview = response.json()
-      return newReview
-    })
-    .then(newReview => {
-      this.setState({ reviews: [newReview, ...this.state.reviews] })
-    })
+    this.aggregateReview()
   }
 
   componentDidMount(){
@@ -44,7 +55,8 @@ class BrewpubsShowContainer extends Component {
     .then(body => {
       this.setState({
         brewpub: body[0],
-        reviews: body[1]
+        reviews: body[1],
+        rating: body[2]
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -88,6 +100,7 @@ class BrewpubsShowContainer extends Component {
           twitter_url = {this.state.brewpub.twitter_url}
           instagram_url = {this.state.brewpub.instagram_url}
         />
+        <h1>Brew Review Score: {this.state.rating}</h1>
         <hr />
         <h1>Reviews</h1>
         {reviewComponents}
