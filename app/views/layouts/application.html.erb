@@ -15,6 +15,7 @@
     <nav class="topnav" id="myTopnav">
       <div class=navigation><%= link_to "Home", brewpubs_path %></div>
       <% if user_signed_in? %>
+        <img class=profile_pic src="<%= current_user.profile_photo %>"></img>
         <div class=username>Signed in as <%= current_user.email %></div>
         <div class=signin><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
         <a href="/brewpubs/new">Add New Brewpub</a>

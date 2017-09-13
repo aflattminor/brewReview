@@ -27,9 +27,11 @@ describe('BrewpubsIndexContainer', () => {
 
   it('should have a specified initial state', () => {
     expect(wrapper.state()).toEqual({
-      brewpubs: []
+      brewpubs: [],
+      search: ''
     })
   })
+
 
   it('should have a specified state after fetch', done => {
     setTimeout(() => {
@@ -37,7 +39,8 @@ describe('BrewpubsIndexContainer', () => {
         brewpubs: [{
           id: 1,
           name: "Yards Brewing"
-        }]
+        }],
+        search: ''
       })
       done();
     }, 1000)
