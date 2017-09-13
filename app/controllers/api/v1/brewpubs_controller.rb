@@ -1,4 +1,4 @@
-require 'pry'
+
 class Api::V1::BrewpubsController < ApplicationController
 
   def index
