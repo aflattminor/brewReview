@@ -14,7 +14,9 @@ class Api::V1::BrewpubsController < ApplicationController
       brewpub_rating = brewpub_rating + review.rating
     end
 
-    average_rating = brewpub_rating / reviews.length
+    if reviews.length > 0
+      average_rating = brewpub_rating / reviews.length
+    end
 
     items = [brewpub,reviews,average_rating]
 
