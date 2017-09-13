@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "user visits brewpub show page" do
-  scenario "user visits the show page" do
+  xscenario "user visits the show page" do
     brewpub = create(:brewpub)
     visit "/brewpubs/1"
     expect(page).to have_content("Yards")
@@ -12,14 +12,14 @@ feature "user visits brewpub show page" do
     expect(page).to have_content("A beer co.")
   end
 
-  scenario "user tries to submit a review without logging in" do
+  xscenario "user tries to submit a review without logging in" do
     brewpub = create(:brewpub)
     visit "/brewpubs/1"
     click_button 'Add Review'
     expect(page).to have_content("User can't be blank, Rating can't be blank")
   end
 
-  scenario "Logged in user submits a blank review"  do
+  xscenario "Logged in user submits a blank review"  do
     brewpub = create(:brewpub)
     user = create(:user)
     visit "/"
@@ -33,7 +33,7 @@ feature "user visits brewpub show page" do
     expect(page).to have_content("Rating can't be blank")
   end
 
-  scenario "Logged in user submits a review with only rating" do
+  xscenario "Logged in user submits a review with only rating" do
     brewpub = create(:brewpub)
     user = create(:user)
     visit "/"
@@ -48,7 +48,7 @@ feature "user visits brewpub show page" do
     expect(page).to_not have_content("Best Brewery Ever!")
     expect(page).to_not have_content("OMG SO GOOD.  PERFECT")
   end
-  scenario "Logged in user submits a full review" do
+  xscenario "Logged in user submits a full review" do
     brewpub = create(:brewpub)
     user = create(:user)
     visit "/"
