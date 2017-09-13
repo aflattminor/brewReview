@@ -1,4 +1,4 @@
-require 'pry'
+
 
 class Api::V1::VotesController < ApplicationController
 
@@ -34,7 +34,7 @@ class Api::V1::VotesController < ApplicationController
     vote_values.each do |value|
       total_vote_values += value
     end
-  
+
 
     data = [votes, total_vote_values]
 
