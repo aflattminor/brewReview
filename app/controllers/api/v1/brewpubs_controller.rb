@@ -8,7 +8,17 @@ class Api::V1::BrewpubsController < ApplicationController
   def show
     brewpub = Brewpub.find(params[:id])
     reviews = brewpub.reviews
-    items = [brewpub,reviews]
+    brewpub_rating = 0
+
+    reviews.each do |review|
+      brewpub_rating = brewpub_rating + review.rating
+    end
+
+    if reviews.length > 0
+      average_rating = brewpub_rating / reviews.length
+    end
+
+    items = [brewpub,reviews,average_rating]
 
     render json: items
   end

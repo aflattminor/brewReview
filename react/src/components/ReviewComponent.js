@@ -6,14 +6,13 @@ class ReviewComponent extends React.Component {
     this.state = {
       rating:this.props.rating,
       header: this.props.header,
-      body: this.props.body,
-      votes: [],
       totalVotes: 0
 
     }
     this.handleUpvote = this.handleUpvote.bind(this)
     this.handleDownvote = this.handleDownvote.bind(this)
     this.addVote = this.addVote.bind(this)
+    this.countVote = this.countVote.bind(this)
   }
 
   handleUpvote(event){
@@ -21,8 +20,9 @@ class ReviewComponent extends React.Component {
       user_vote: 1,
       review_id: this.props.id
     }
-    this.setState({totalVotes: this.state.totalVotes + 1})
     this.addVote(votepayload)
+
+    this.countVote()
   }
 
   handleDownvote(event){
@@ -30,9 +30,24 @@ class ReviewComponent extends React.Component {
       user_vote:  - 1,
       review_id: this.props.id
     }
-    this.setState({totalVotes: this.state.totalVotes - 1})
 
     this.addVote(votepayload)
+
+    this.countVote()
+  }
+
+  countVote(){
+    setTimeout(function(){
+      let path = location.pathname
+      fetch(`/api/v1/${path}/reviews/${this.props.id}/votes`)
+      .then(response => {
+        return response.json()
+      })
+      .then(body => {
+        this.setState({
+          totalVotes: body
+        })
+      })}.bind(this), 100)
   }
 
   addVote(votepayload) {
@@ -42,17 +57,6 @@ class ReviewComponent extends React.Component {
       method: 'POST',
       body: JSON.stringify(votepayload)
     })
-    // .then(response => {
-    //   let newVote= response.json()
-    //   return newVote
-    // })
-    // .then(newVote => {
-    //
-    //   this.setState({
-    //     votes: [newVote, ...this.state.votes],
-    //     totalVotes: this.state.totalVotes + 1
-    //    })
-    // })
   }
 
 
@@ -64,12 +68,11 @@ class ReviewComponent extends React.Component {
     })
     .then(body => {
       this.setState({
-        votes: body[0],
-        totalVotes: body[1]
-
+        totalVotes: body
       })
     })
   }
+
   render() {
     return (
       <div className="ReviewComponent">

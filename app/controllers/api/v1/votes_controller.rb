@@ -1,5 +1,3 @@
-
-
 class Api::V1::VotesController < ApplicationController
 
   #needs user authentication feature from devise
@@ -8,36 +6,43 @@ class Api::V1::VotesController < ApplicationController
 
   def create
     data = JSON.parse(request.body.read)
+
+    review = Review.find(params[:review_id])
+    votes = review.votes
+    existing_vote = Vote.find_by(review: review, user: current_user, user_vote: data["user_vote"])
+
     if current_user
-      new_vote = Vote.create(
-        review_id: data["review_id"],
-        user_id: current_user.id, #needs user authentication feature from devise
-        user_vote: data["user_vote"]
-      )
-      render json: new_vote
+      if votes.include?(existing_vote)
+        existing_vote.delete
+      else
+        new_vote = Vote.create(
+          review_id: data["review_id"],
+          user_id: current_user.id,
+          user_vote: data["user_vote"]
+        )
+        render json: new_vote
+      end
     else
       render json: nil
     end
 
   end
 
-  def index
-    votes = Vote.where(params[:review_id] ==1)
 
+  def index
+    review = Review.find(params[:review_id])
+    votes = review.votes
 
     vote_values = votes.map do |vote|
       vote["user_vote"]
     end
-
 
     total_vote_values = 0
     vote_values.each do |value|
       total_vote_values += value
     end
 
-
-    data = [votes, total_vote_values]
-
-    render json: data
+    render json: total_vote_values
   end
+
 end
