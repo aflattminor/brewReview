@@ -3,7 +3,9 @@ import React from 'react';
 const BrewpubComponent = props => {
 
   return(
-    <div>
+    <div className="large-4 medium-6 small-12 cell">
+      <img src={props.logo_url} className='logo'></img>
+      <img src={props.img_url} className='img'></img>
       <h1>{props.name}</h1>
       <h2>{props.address}</h2>
       <h2>{props.city}</h2>

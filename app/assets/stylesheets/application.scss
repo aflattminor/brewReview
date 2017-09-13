@@ -1,1 +1,83 @@
 // @import "*";
+
+@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Montserrat');
+
+
+ body {
+   background-color: #122C56;
+   font-family: 'Montserrat', sans-serif;
+   color: lightblue;
+ }
+
+ .title {
+   color: #BBD1E4;
+   font-family: 'Allerta Stencil', sans-serif;
+   font-size: 275%;
+   font-variant: small-caps;
+   text-align: center;
+  //  span.overline{
+  //        text-decoration: overline;
+  //      }
+    span.underline{
+      color: #C4953B;
+      text-decoration: underline;
+     }
+    hr {
+      color: #C4953B;
+    }
+  }
+
+ .ReviewComponent {
+   color: #C4953B;
+  }
+
+a {
+  color: red;
+}
+
+a:visited {
+  color: white;
+}
+
+.cell{
+  color: #A5ACAF;
+  border: 3px solid red;
+  background-color: #ededed;
+}
+
+  .brewpub-form {
+    border: solid;
+    border-color: red;
+    margin-left: 50px;
+  }
+
+  input[type=submit] {
+    background-color: #A5ACAF;
+    border: solid;
+    border-color: #C4953B;
+    color: #122C56;
+    text-decoration: none;
+    margin: 6px 6px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  input[type=file] {
+    background-color: #A5ACAF;
+    border: solid;
+    border-color: #C4953B;
+    color: #122C56;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  input[type=text] {
+    margin: 10px;
+    width: 50%;
+  }
+
+  .remember{
+    align-items: left;
+  }

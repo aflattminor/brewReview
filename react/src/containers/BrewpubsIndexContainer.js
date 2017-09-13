@@ -69,18 +69,18 @@ class BrewpubsIndexContainer extends Component {
             onChange={this.updateSearch}
           />
           </form>
-          <div>
-            <ul>
+          <div className="grid-x">
               {filteredBrewpubs.map((brewpub)=>{
                 return  <Link to={`/brewpubs/${brewpub.id}`} key={brewpub.id}>
                           <BrewpubComponent
                             key = {brewpub.id}
                             id = {brewpub.id}
                             name = {brewpub.name}
+                            logo_url = {brewpub.logo_url}
+                            img_url = {brewpub.img_url}
                             />
                         </Link>
               })}
-            </ul>
           </div>
         </div>
       </div>
