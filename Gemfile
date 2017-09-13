@@ -14,6 +14,7 @@ gem 'react-rails'
 gem 'carrierwave', '~> 1.0'
 gem 'simplecov', :require => false, :group => :test
 gem 'fog'
+gem 'devise'
 
 group :development, :test do
   gem 'listen', '~> 3.0.5'
@@ -26,10 +27,10 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'devise'
   gem "dotenv-rails"
 
 end
+
 
 group :test do
   gem 'coveralls', require: false
@@ -37,6 +38,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
