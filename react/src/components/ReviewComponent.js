@@ -98,7 +98,6 @@ class ReviewComponent extends React.Component {
        </div>
        <br />
        <strong>{this.state.totalVotes}</strong>
-        <a onClick={this.handleDownvote}> Hate This Review ▼ </a>
         {deleteButton}
       </div>
     );
