@@ -1,5 +1,3 @@
-
-
 class ReviewMailer < ApplicationMailer
 
   def new_review(review)
@@ -9,8 +7,6 @@ class ReviewMailer < ApplicationMailer
       to: review.brewpub.user.email,
       subject: "New Review for #{review.brewpub.name}"
     )
-
   end
-
 
 end
