@@ -18,7 +18,11 @@ class Api::V1::BrewpubsController < ApplicationController
       average_rating = brewpub_rating / reviews.length
     end
 
-    items = [brewpub,reviews,average_rating]
+    if current_user
+      items = [brewpub,reviews,average_rating, current_user]
+    else
+      items = [brewpub,reviews,average_rating]
+    end
 
     render json: items
   end

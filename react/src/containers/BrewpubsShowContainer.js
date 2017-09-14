@@ -9,7 +9,8 @@ class BrewpubsShowContainer extends Component {
     this.state = {
       brewpub: {},
       reviews: [],
-      rating: null
+      rating: null,
+      currentUser: null
     }
     this.addReview = this.addReview.bind(this)
     this.aggregateReview = this.aggregateReview.bind(this)
@@ -42,7 +43,9 @@ class BrewpubsShowContainer extends Component {
 
   componentDidMount(){
     let path = location.pathname
-    fetch(`/api/v1/${path}/`)
+    fetch(`/api/v1/${path}/`, {
+      credentials: 'same-origin'
+    })
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -56,7 +59,8 @@ class BrewpubsShowContainer extends Component {
       this.setState({
         brewpub: body[0],
         reviews: body[1],
-        rating: body[2]
+        rating: body[2],
+        currentUser: body[3]
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -71,6 +75,9 @@ class BrewpubsShowContainer extends Component {
           rating = {review.rating}
           header = {review.header}
           body = {review.body}
+          aggregateReview = {this.aggregateReview}
+          currentUser = {this.state.currentUser}
+          userId = {review.user_id}
         />
       )
     })
