@@ -100,12 +100,17 @@ class BrewpubsShowContainer extends Component {
           twitter_url = {this.state.brewpub.twitter_url}
           instagram_url = {this.state.brewpub.instagram_url}
         />
-        <h1>Brew Review Score: {this.state.rating}</h1>
+        <hr />
+        <div className="rating">
+          Brew Review Score: {this.state.rating}
+        </div>
         <hr />
         <h1>Reviews</h1>
         {reviewComponents}
         <hr />
-        <ReviewForm brewpubId={this.state.brewpub.id} submitFunction={this.addReview}/>
+        <div className="review-form">
+          <ReviewForm brewpubId={this.state.brewpub.id} submitFunction={this.addReview}/>
+        </div>
       </div>
     )
   }

@@ -1,60 +1,79 @@
 // @import "*";
 
 @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil|Montserrat');
-
+@import url('https://fonts.googleapis.com/css?family=Vast+Shadow');
 
  body {
    background-color: #122C56;
    font-family: 'Montserrat', sans-serif;
    color: lightblue;
+   height: 100%;
  }
 
- .title {
-   color: #BBD1E4;
-   font-family: 'Allerta Stencil', sans-serif;
-   font-size: 275%;
+ .app {
+  margin: 2% 10%
+ }
+
+ .hero-image {
+     /* The image used */
+     background-image: url("http://flightdeckbar.com/wp-content/uploads/2016/05/csc-beer-fine.jpg");
+
+     /* Set a specific height */
+     height: 50%;
+
+     /* Position and center the image to scale nicely on all screens */
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: relative;
+     margin-top: 65px;
+     z-index: -1;
+ }
+
+ .hero-text {
+   color: #122C56;
+   font-family: 'Vast Shadow', cursive;
+   font-size: 600%;
    font-variant: small-caps;
    text-align: center;
-  //  span.overline{
-  //        text-decoration: overline;
-  //      }
-    span.underline{
-      color: #C4953B;
-      text-decoration: underline;
-     }
-    hr {
-      color: #C4953B;
-    }
+   opacity: 0.7;
   }
 
- .ReviewComponent {
-   color: #C4953B;
+  hr {
+    border-color: #FFB201;
+  }
+
+ .review-component {
+   color: #FFB201;
   }
 
 a {
-  color: red;
+  color: #7A7F82;
 }
 
 a:visited {
-  color: white;
+  color: #FFB201;
 }
 
-.cell{
-  color: #A5ACAF;
-  border: 3px solid red;
+.tile {
+  color: #7A7F82;
+  border: 3px solid #FFB201;
+  text-align: center;
   background-color: #ededed;
+  height: 600px;
+  width: 600px;
+  margin: 5px;
 }
 
   .brewpub-form {
     border: solid;
-    border-color: red;
-    margin-left: 50px;
+    border-color: #FFB201;
   }
 
   input[type=submit] {
-    background-color: #A5ACAF;
-    border: solid;
-    border-color: #C4953B;
+    background-color: lightblue;
+    // border: solid;
+    // border-color: #FFB201;
     color: #122C56;
     text-decoration: none;
     margin: 6px 6px;
@@ -63,12 +82,12 @@ a:visited {
   }
 
   input[type=file] {
-    background-color: #A5ACAF;
-    border: solid;
-    border-color: #C4953B;
+    background-color: #lightblue;
+    // border: solid;
+    // border-color: #FFB201;
     color: #122C56;
     text-decoration: none;
-    margin: 4px 2px;
+    margin: 4px;
     cursor: pointer;
     font-size: 18px;
   }

@@ -75,7 +75,7 @@ class ReviewComponent extends React.Component {
 
   render() {
     return (
-      <div className="ReviewComponent">
+      <div className="review-component">
        <h2>Rating: {this.props.rating}</h2>
        <h2>{this.props.header}</h2>
        <p>{this.props.body}</p>
