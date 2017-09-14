@@ -9,6 +9,7 @@ class BrewpubsController <ApplicationController
     @brewpub = Brewpub.create(brewpub_params)
     @brewpub.user = current_user
     if @brewpub.save
+      BrewpubMailer.new_brewpub(@brewpub).deliver_now
       redirect_to @brewpub, notice: "Brewpub added successfully"
     else
       flash[:alert] = @brewpub.errors.full_messages.join(',')
