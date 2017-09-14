@@ -7,13 +7,15 @@ class Api::V1::VotesController < ApplicationController
   def create
     data = JSON.parse(request.body.read)
 
+
     review = Review.find(params[:review_id])
     votes = review.votes
-    existing_vote = Vote.find_by(review: review, user: current_user, user_vote: data["user_vote"])
+    existing_vote = Vote.find_by(review: review, user: current_user)
+
 
     if current_user
       if votes.include?(existing_vote)
-        existing_vote.delete
+        existing_vote.update_attribute(:user_vote, data["user_vote"])
       else
         new_vote = Vote.create(
           review_id: data["review_id"],
