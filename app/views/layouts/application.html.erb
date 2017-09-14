@@ -9,6 +9,7 @@
     <%= stylesheet_link_tag    'brewpubs', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css" integrity="sha256-itWEYdFWzZPBG78bJOOiQIn06QCgN/F0wMDcC4nOhxY=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
@@ -27,16 +28,22 @@
         </div>
       <%end%>
     </nav>
-      <div class="title">
-        <hr />
-          <h1><span class="underline">Brew</span><span class="overline">Review</span></h1>
-        <hr />
-      </div>
+
+      <div class="hero-image">
+        <div class="hero-text">
+          <br />
+            <span>Brew</span><span>Review</span>
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="app">
 
     <%flash.each do |key, value|%>
       <%=value%>
     <%end%>
     <%= yield %>
 
+  </div>
   </body>
 </html>

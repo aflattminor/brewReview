@@ -1,6 +1,9 @@
 .topnav {
     background-color: #EDEDED;
     overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
 }
 
 /* Style the links inside the navigation bar */
@@ -17,17 +20,17 @@
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: lightblue;
-    color: #A5ACAF;
+    color: #7A7F82;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: lightblue;
-    color: #A5ACAF;
+    color: #7A7F82;
 }
 
 .username {
-  color: #A5ACAF;
+  color: #7A7F82;
   float: right;
   margin: 20px;
 }
@@ -36,12 +39,12 @@
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  margin: 5px;
+  margin: 5px 20px;
   float: right;
 }
 
 .signin {
-  color: #A5ACAF;
+  color: #7A7F82;
   float: right;
 }
 
@@ -60,9 +63,9 @@ textarea{
 }
 
 input[type=text]:focus{
-  border: 3px solid red;
+  border: 3px solid #7A7F82;
 }
 
 textarea:focus{
-  border: 3px solid red;
+  border: 3px solid #7A7F82;
 }

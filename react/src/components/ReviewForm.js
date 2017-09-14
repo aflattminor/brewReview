@@ -82,13 +82,14 @@ class ReviewForm extends Component {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        <br />
 
         <label htmlFor="header">Title</label>
         <input name="header" type="text" id="header" value={this.state.header} onChange={this.handleItemChange}/>
-
+        <br />
         <label htmlFor="body">Review</label>
         <textarea id="body" name="body" value={this.state.body} onChange={this.handleItemChange}/>
-
+        <br />
         <input type="submit" value="Submit" />
 
       </form>
