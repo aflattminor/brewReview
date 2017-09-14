@@ -16,6 +16,7 @@ gem 'simplecov', :require => false, :group => :test
 gem 'fog'
 gem 'devise'
 
+
 group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'launchy', require: false
