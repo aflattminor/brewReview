@@ -6,6 +6,7 @@ RSpec.describe Api::V1::BrewpubsController, type: :controller do
 
   describe "GET#index" do
     it "should show list of brewpubs" do
+
       get :index
       returned_json = JSON.parse(response.body)
 
@@ -23,6 +24,7 @@ RSpec.describe Api::V1::BrewpubsController, type: :controller do
 
   describe "GET#show" do
     it "should show the brewpubs" do
+
       get :show, params: { id: 1 }
       returned_json = JSON.parse(response.body)
 

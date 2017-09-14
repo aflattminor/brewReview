@@ -21,7 +21,6 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json["rating"]).to eq 3
       expect(returned_json["body"]).to eq "I got your review right here buddy."
 
-      # expect(page).to have_content("I got your review right here buddy.")
       expect(ActionMailer::Base.deliveries.count).to eq(1)
 
     end
