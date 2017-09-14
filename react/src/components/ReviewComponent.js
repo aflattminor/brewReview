@@ -83,7 +83,7 @@ class ReviewComponent extends React.Component {
   render() {
     let deleteButton;
     if(this.props.currentUser != null){
-      if(this.props.currentUser.id == this.props.userId){
+      if(this.props.currentUser.id == this.props.userId || this.props.currentUser.admin == true){
         deleteButton = <input type='button' value='Delete this review' onClick={this.deleteReview} />
       }
     }
