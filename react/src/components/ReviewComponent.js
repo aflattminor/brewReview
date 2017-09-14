@@ -79,9 +79,13 @@ class ReviewComponent extends React.Component {
        <h2>Rating: {this.props.rating}</h2>
        <h2>{this.props.header}</h2>
        <p>{this.props.body}</p>
-       <a onClick={this.handleUpvote}>Like This Review ▲</a>
+       <div className="voting">
+       <a onClick={this.handleUpvote}>▲ LIKE</a> |
+       <a onClick={this.handleDownvote}> DISLIKE ▼ </a>
+       </div>
+       <br />
        <strong>{this.state.totalVotes}</strong>
-        <a onClick={this.handleDownvote}> Hate This Review ▼ </a>
+
       </div>
     );
   }

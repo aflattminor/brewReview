@@ -75,22 +75,22 @@ class ReviewForm extends Component {
       <form className="review-form" id="review-form" onSubmit={this.handleFormSubmit}>
 
         <label htmlFor="rating">Rating</label>
-        <select name="rating" id="rating" form="review-form" value={this.state.rating} onChange={this.handleItemChange}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
+        <select className="mugs" name="rating" id="rating" form="review-form" value={this.state.rating} onChange={this.handleItemChange}>
+          <option value="1">🍺 </option>
+          <option value="2">🍺 🍺 </option>
+          <option value="3">🍺 🍺 🍺 </option>
+          <option value="4">🍺 🍺 🍺 🍺 </option>
+          <option value="5">🍺 🍺 🍺 🍺 🍺 </option>
         </select>
         <br />
 
-        <label htmlFor="header">Title</label>
-        <input name="header" type="text" id="header" value={this.state.header} onChange={this.handleItemChange}/>
+        <label htmlFor="header"></label>
+        <input name="header" placeholder="Enter a Title" type="text" id="header" value={this.state.header} onChange={this.handleItemChange}/>
         <br />
-        <label htmlFor="body">Review</label>
-        <textarea id="body" name="body" value={this.state.body} onChange={this.handleItemChange}/>
+        <label htmlFor="body"></label>
+        <textarea className="review-body" id="body" name="body" placeholder="Enter a Review" value={this.state.body} onChange={this.handleItemChange}/>
         <br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className="button" />
 
       </form>
     )

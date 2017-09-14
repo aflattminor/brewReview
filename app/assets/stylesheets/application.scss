@@ -10,8 +10,16 @@
    height: 100%;
  }
 
+
+ #grad {
+   background: #122C56; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(lightblue, #122C56); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(lightblue, #122C56); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(lightblue, #122C56); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(lightblue, #122C56); /* Standard syntax */
+}
  .app {
-  margin: 2% 10%
+  margin: 2% 7%
  }
 
  .hero-image {
@@ -27,7 +35,7 @@
      background-size: cover;
      position: relative;
      margin-top: 65px;
-     z-index: -1;
+     z-index: 0;
  }
 
  .hero-text {
@@ -58,31 +66,75 @@ a:visited {
 .tile {
   color: #7A7F82;
   border: 3px solid #FFB201;
+  display: inline-block;
+  vertical-align: top;
   text-align: center;
   background-color: #ededed;
-  height: 600px;
-  width: 600px;
+  height: 300px;
+  width: 340px;
   margin: 5px;
+  padding: 10px;
 }
 
-  .brewpub-form {
+  .add-pub-form {
     border: solid;
     border-color: #FFB201;
+    font-size: 30px;
+    text-align: center;
+    margin: 10px;
   }
 
-  input[type=submit] {
-    background-color: lightblue;
-    // border: solid;
-    // border-color: #FFB201;
-    color: #122C56;
-    text-decoration: none;
-    margin: 6px 6px;
-    cursor: pointer;
-    font-size: 18px;
+  .index-container {
+    margin: 25px;
+    text-align: center;
   }
+
+  // input[type=submit] {
+  //   background-color: lightblue;
+  //   // border: solid;
+  //   // border-color: #FFB201;
+  //   color: #122C56;
+  //   text-decoration: none;
+  //   margin: 6px 6px;
+  //   cursor: pointer;
+  //   font-size: 18px;
+  // }
+
+  .button {
+    background-color: #FFB201;
+    border: none;
+    color: #122C56;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    width: 33%;
+    margin: 10px;
+    border-radius: 4px;
+}
+.button:hover {background-color: lightblue}
+
+.button:active {
+  background-color: lightblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.profile-photo {
+  background-color: #FFB201;
+  border: none;
+  color: #122C56;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  width: 33%;
+  margin: 10px;
+  border-radius: 4px;
+}
 
   input[type=file] {
-    background-color: #lightblue;
+    // background-color: lightblue;
     // border: solid;
     // border-color: #FFB201;
     color: #122C56;
@@ -95,8 +147,33 @@ a:visited {
   input[type=text] {
     margin: 10px;
     width: 50%;
+    font-size: 25px;
   }
 
-  .remember{
-    align-items: left;
+  .field {
+    width: 130%;
+    margin: 10px;
+    font-size: 25px;
   }
+  .review-body {
+    width: 50%;
+    margin: 10px;
+    height: 300px;
+    font-size: 25px;
+  }
+
+  .required-fields textarea {
+    width: 50%;
+    height: 300px;
+    font-size: 25px;
+    margin: 10px;
+  }
+
+.mugs {
+  font-size: 25px;
+  margin: 10px;
+}
+
+.voting a{
+  color: #ededed
+}
