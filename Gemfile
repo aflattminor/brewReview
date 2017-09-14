@@ -15,6 +15,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'simplecov', :require => false, :group => :test
 gem 'fog'
 gem 'devise'
+gem 'mailcatcher'
 
 group :development, :test do
   gem 'listen', '~> 3.0.5'
