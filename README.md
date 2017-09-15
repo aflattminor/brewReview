@@ -8,14 +8,13 @@
 ## Synopsis
 Brewreview is a site that reviews Philadelphia's brewpubs according to user input. Users may add their favorite brewpub for other users to review!
 
-## Code Example
-Brewreview uses:
+## Brewreview uses
 
 * [Devise](https://github.com/plataformatec/devise) for user authentication.
 * [CarrierWave](https://github.com/carrierwaveuploader/carrierwave) for image uploading.
 
 ## Motivation
-We like beer and we know you do too, so come on down to submit your review!
+We like beer and we know you do too, so come on down and submit your review!
 
 ## Contributors
 [Alex Luna](https://github.com/Luna2442)
