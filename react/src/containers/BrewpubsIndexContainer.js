@@ -37,16 +37,19 @@ class BrewpubsIndexContainer extends Component {
 
 
   render() {
+
     let brewpubComponents = this.state.brewpubs.map((brewpub) => {
       return (
-        <Link to={`/brewpubs/${brewpub.id}`} key={brewpub.id}>
-          <BrewpubComponent
-            key = {brewpub.id}
-            id = {brewpub.id}
-            name = {brewpub.name}
-            image = {brewpub.img_url}
-            />
-        </Link>
+        <div className= "tile">
+          <Link to={`/brewpubs/${brewpub.id}`} key={brewpub.id}>
+            <BrewpubComponent
+              key = {brewpub.id}
+              id = {brewpub.id}
+              name = {brewpub.name}
+              image = {brewpub.img_url}
+              />
+          </Link>
+        </div>
       )
     })
 
@@ -70,21 +73,19 @@ class BrewpubsIndexContainer extends Component {
           />
           </form>
           <br />
-          <div className="grid-container">
-          <div className="grid-x grid-padding-x">
+          <div className="index-container">
                 {filteredBrewpubs.map((brewpub)=>{
-                  return  <div className= "large-shrink cell tile">
-                        <Link to={`/brewpubs/${brewpub.id}`} key={brewpub.id}>
-                            <BrewpubComponent
-                              key = {brewpub.id}
-                              id = {brewpub.id}
-                              name = {brewpub.name}
-                              logo_url = {brewpub.logo_url}
+                  return  <div className= "tile">
+                            <Link to={`/brewpubs/${brewpub.id}`} key={brewpub.id}>
+                              <BrewpubComponent
+                                key = {brewpub.id}
+                                id = {brewpub.id}
+                                name = {brewpub.name}
+                                logo_url = {brewpub.logo_url}
                               />
-                          </Link>
+                            </Link>
                           </div>
                 })}
-            </div>
           </div>
         </div>
       </div>

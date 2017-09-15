@@ -21,8 +21,21 @@ RSpec.describe Api::V1::ReviewsController, type: :controller do
       expect(returned_json["rating"]).to eq 3
       expect(returned_json["body"]).to eq "I got your review right here buddy."
 
-      # expect(page).to have_content("I got your review right here buddy.")
       expect(ActionMailer::Base.deliveries.count).to eq(1)
+
+    end
+  end
+
+
+
+  describe "POST#destroy" do
+    it "decreses review count by 1" do
+      admin = User.create!(email: "funkalicious@groovy.com", password: "Groovy", password_confirmation: "Groovy", admin: true)
+      review1 = Review.create!(id: 11121 , rating: 3 , user_id: admin.id , brewpub_id: 1)
+
+      post :destroy, params:  { brewpub_id: 1, id: 11121}
+
+      expect(Review.count).to eq(1)
 
     end
   end

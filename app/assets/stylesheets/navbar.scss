@@ -4,6 +4,8 @@
     position: fixed; /* Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
+    z-index: 1;
+    opacity: 0.9;
 }
 
 /* Style the links inside the navigation bar */
@@ -41,6 +43,8 @@
   height: 50px;
   margin: 5px 20px;
   float: right;
+  border: solid;
+  border-color: #FFB201;
 }
 
 .signin {
