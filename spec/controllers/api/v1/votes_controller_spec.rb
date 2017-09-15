@@ -56,12 +56,12 @@ RSpec.describe Api::V1::VotesController, type: :controller do
 
       get :index, params: { brewpub_id: 1, review_id: 1000 }
 
-      returned_json = JSON.parse(response.body)
+      returned_json = response.body
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/json")
 
-      expect(returned_json).to be_kind_of(Integer)
+      expect(returned_json).to be_kind_of(String)
       expect(returned_json).to_not be_kind_of(Hash)
       expect(returned_json).to_not be_kind_of(Array)
     end

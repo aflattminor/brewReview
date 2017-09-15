@@ -12,28 +12,28 @@ const BrewpubComponent = props => {
 
   let website_url;
   if(props.website_url != null){
-    website_url = <a href={props.website_url}><h2>{webIcon}</h2></a>
+    website_url = <a href={props.website_url} target="_blank"><h2>{webIcon}</h2></a>
   }
 
   let fbIcon = <i className="fa fa-facebook" aria-hidden="true"></i>;
 
   let facebook_url;
   if(props.facebook_url != null){
-    facebook_url =  <a href={props.facebook_url}><h2>{fbIcon}</h2></a>
+    facebook_url =  <a href={props.facebook_url} target="_blank"><h2>{fbIcon}</h2></a>
   }
 
   let twitterIcon = <i className="fa fa-twitter" aria-hidden="true"></i>;
 
   let twitter_url;
   if(props.twitter_url != null){
-    twitter_url = <a href={props.twitter_url}><h2>{twitterIcon}</h2></a>
+    twitter_url = <a href={props.twitter_url} target="_blank"><h2>{twitterIcon}</h2></a>
   }
 
   let instaIcon= <i className="fa fa-instagram" aria-hidden="true"></i>;
 
   let instagram_url;
   if(props.instagram_url != null){
-    instagram_url =  <a href={props.instagram_url}><h2>{instaIcon}</h2></a>
+    instagram_url =  <a href={props.instagram_url} target="_blank"><h2>{instaIcon}</h2></a>
   }
 
   return(
