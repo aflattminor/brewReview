@@ -109,7 +109,7 @@ class BrewpubsShowContainer extends Component {
         />
         <hr />
         <div className="rating">
-          Brew Review Score: {this.state.rating}
+          BrewReview Score: {this.state.rating}
         </div>
         <hr />
         <h1>Reviews</h1>
