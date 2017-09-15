@@ -13,8 +13,22 @@ class BrewpubsController <ApplicationController
       BrewpubMailer.new_brewpub(@brewpub).deliver_now
       redirect_to @brewpub, notice: "Brewpub added successfully"
     else
-      flash[:alert] = @brewpub.errors.full_messages.join(',')
+      flash.now[:alert] = @brewpub.errors.full_messages
       render :new
+    end
+  end
+
+  def edit
+    @brewpub = Brewpub.find(params[:id])
+  end
+
+  def update
+    @brewpub = Brewpub.find(params[:id])
+    if @brewpub.update(brewpub_params)
+      redirect_to @brewpub, notice: "successfully updated"
+    else
+      render :edit
+      flash.now[:alert] = "Pub not saved"
     end
   end
 

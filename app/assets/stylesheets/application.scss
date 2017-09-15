@@ -181,12 +181,15 @@ a:visited {
     font-size: 25px;
   }
 
-  .required-fields textarea {
-    width: 50%;
-    height: 300px;
-    font-size: 25px;
-    margin: 10px;
-  }
+.errors{
+  color: red;
+
+.required-fields textarea {
+  width: 50%;
+  height: 300px;
+  font-size: 25px;
+  margin: 10px;
+}
 
 .mugs {
   font-size: 25px;
