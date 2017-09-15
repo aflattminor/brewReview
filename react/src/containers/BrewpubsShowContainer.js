@@ -14,6 +14,7 @@ class BrewpubsShowContainer extends Component {
     }
     this.addReview = this.addReview.bind(this)
     this.aggregateReview = this.aggregateReview.bind(this)
+    this.deleteBrewpub = this.deleteBrewpub.bind(this)
   }
 
   aggregateReview(){
@@ -66,7 +67,23 @@ class BrewpubsShowContainer extends Component {
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  deleteBrewpub(){
+    let path = location.pathname
+    fetch(`/api/v1/${path}`, {
+      credentials: 'same-origin',
+      method: 'DELETE'
+    })
+  }
+
   render() {
+
+    let deleteButton;
+    if(this.state.currentUser != null){
+      if(this.state.currentUser.id == this.state.brewpub.user_id || this.state.currentUser.admin == true){
+        deleteButton = <input type='button' value='Delete this Brewpub' onClick={this.deleteBrewpub} />
+      }
+    }
+
     let reviewComponents = this.state.reviews.map((review) => {
       return (
         <ReviewComponent
@@ -107,6 +124,7 @@ class BrewpubsShowContainer extends Component {
           twitter_url = {this.state.brewpub.twitter_url}
           instagram_url = {this.state.brewpub.instagram_url}
         />
+        {deleteButton}
         <hr />
         <div className="rating">
           BrewReview Score: {this.state.rating}

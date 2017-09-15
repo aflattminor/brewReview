@@ -1,17 +1,13 @@
 class Api::V1::VotesController < ApplicationController
 
-  #needs user authentication feature from devise
-  # before_action :authenticate_user
   skip_before_action :verify_authenticity_token
 
   def create
     data = JSON.parse(request.body.read)
 
-
     review = Review.find(params[:review_id])
     votes = review.votes
     existing_vote = Vote.find_by(review: review, user: current_user)
-
 
     if current_user
       if votes.include?(existing_vote)
@@ -29,7 +25,6 @@ class Api::V1::VotesController < ApplicationController
     end
 
   end
-
 
   def index
     review = Review.find(params[:review_id])
