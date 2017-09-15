@@ -3,6 +3,7 @@
 ![Coverage Status](https://coveralls.io/repos/github/Luna2442/brewReview/badge.svg?branch=master)
 
 # BREWREVIEW
+[Live Site](https://brewreview2.herokuapp.com/brewpubs)
 ![Logo Icon](https://cdn.pastemagazine.com/www/articles/15560626399_6c4328f9ba_h%20%281%29.jpg)
 
 ## Getting Started
