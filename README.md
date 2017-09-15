@@ -1,6 +1,6 @@
 ![Build Status](https://codeship.com/projects/0dcf82e0-748b-0135-298f-6261ba794a34/status?branch=master)
+![Code Climate](https://codeclimate.com/github/Luna2442/brewReview)
 ![Coverage Status](https://coveralls.io/repos/github/Luna2442/brewReview/badge.svg?branch=master)
-<!-- ![Code Climate](https://codeclimate.com/github/Luna2442/brewReivew.png) -->
 
 # BREWREVIEW
 [Live Site](https://brewreview2.herokuapp.com/brewpubs)
