@@ -7,11 +7,16 @@
 
 ![Logo Icon](https://cdn.pastemagazine.com/www/articles/15560626399_6c4328f9ba_h%20%281%29.jpg)
 
-## Getting Started
-To run this repo on your local machine, clone this repo down and bundle / npm install. With rails and npm installed, run ```rails s``` and ```npm start``` to boot up the servers. Navigate to the default ```localhost:3000``` to view the site locally.
-
 ## Synopsis
-BrewReview is a site that reviews Philadelphia's brewpubs according to user input. Users may add their favorite brewpub for other users to review! Individual user reviews also can be upvoted and downvoted.
+BrewReview is a site that reviews Philadelphia's brewpubs according to user input. The site was designed to demonstrate all basic CRUD actions.
+
+#### Features
+Users can login to create an account and may add their favorite brewpubs for other users to review! A user can also submit individual reviews on other brewpubs. Individual user reviews can also then be upvoted and downvoted.
+
+All reviews and brewpubs are associated to an individual user. If the user no longer wishes to display that brewpub or review, the user can choose to delete it from the site.
+
+## Getting Started
+With rails and npm installed, clone this repo down and bundle / npm install. Run ```rails s``` and ```npm start``` to boot up the servers. Navigate to the default ```localhost:3000``` to view the site locally.
 
 ## Build
 BrewReview uses a Ruby on Rails backend with some React.js for the frontend.
