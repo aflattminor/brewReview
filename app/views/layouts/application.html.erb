@@ -40,8 +40,13 @@
     <div class="app">
 
     <%flash.each do |key, value|%>
-      <%=value%>
+      <%value.each do |message|%>
+      <ul class="errors">
+        <li><%=message%></li>
+      </ul>
     <%end%>
+    <%end%>
+
     <%= yield %>
 
   </div>

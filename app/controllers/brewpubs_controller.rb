@@ -11,7 +11,7 @@ class BrewpubsController <ApplicationController
     if @brewpub.save
       redirect_to @brewpub, notice: "Brewpub added successfully"
     else
-      flash[:alert] = @brewpub.errors.full_messages.join(',')
+      flash.now[:alert] = @brewpub.errors.full_messages
       render :new
     end
   end
@@ -26,7 +26,7 @@ class BrewpubsController <ApplicationController
       redirect_to @brewpub, notice: "successfully updated"
     else
       render :edit
-      flash[:alert] = "Pub not saved"
+      flash.now[:alert] = "Pub not saved"
     end
   end
 
