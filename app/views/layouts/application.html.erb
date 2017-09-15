@@ -39,13 +39,19 @@
     </div>
     <div class="app">
 
+
     <%flash.each do |key, value|%>
+      <% if value.class == Array%>
       <%value.each do |message|%>
-      <ul class="errors">
-        <li><%=message%></li>
+      <li class="errors"><%=message%></li>
+      <%end%>
+      <%else%>
+        <li class="errors"><%=value%></li>
       </ul>
     <%end%>
     <%end%>
+
+
 
     <%= yield %>
 
