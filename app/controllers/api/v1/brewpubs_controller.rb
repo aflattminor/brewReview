@@ -31,6 +31,8 @@ class Api::V1::BrewpubsController < ApplicationController
   def destroy
     brewpub = Brewpub.find(params[:id])
     brewpub.delete
+
+    render index:
   end
 
 end
