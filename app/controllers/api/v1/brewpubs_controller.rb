@@ -2,7 +2,6 @@
 class Api::V1::BrewpubsController < ApplicationController
 
   def index
-
     render json: Brewpub.all
   end
 
@@ -32,7 +31,7 @@ class Api::V1::BrewpubsController < ApplicationController
     brewpub = Brewpub.find(params[:id])
     brewpub.delete
 
-    render index:
+    render :index
   end
 
 end
