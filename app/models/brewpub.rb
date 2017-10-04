@@ -32,4 +32,8 @@ class Brewpub < ApplicationRecord
   validates :user_id, presence: true
 
   has_many :reviews
+
+  def votes
+    reviews.map{ |review| review.votes }.flatten
+  end
 end

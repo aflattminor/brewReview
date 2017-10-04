@@ -62,7 +62,7 @@ const BrewpubComponent = props => {
           <div className="info index-container">
           <h2>{props.hours}</h2>
           </div>
-          <div clasName="info">
+          <div className="info">
           <span className="info social">
               {website_url}
           </span>
