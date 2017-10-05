@@ -20,3 +20,8 @@
 
 /coverage
 .env
+
+# Ignore uploaded files in test/development
+/public/uploads
+sendgrid.env
+/app/assets/javascripts/bundle.js

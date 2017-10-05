@@ -1,39 +1,54 @@
 .topnav {
-    background-color: #333;
+    background-color: #EDEDED;
     overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1;
+    opacity: 0.9;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: #122C56;
     text-align: center;
-    padding: 14px 16px;
+    padding: 16px 16px;
     text-decoration: none;
     font-size: 25px;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #4CAF50;
-    color: white;
+    background-color: lightblue;
+    color: #7A7F82;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: lightblue;
+    color: #7A7F82;
 }
 
 .username {
-  color: white;
+  color: #7A7F82;
   float: right;
   margin: 20px;
 }
 
+.profile_pic {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 5px 20px;
+  float: right;
+  border: solid;
+  border-color: #FFB201;
+}
+
 .signin {
-  color: white;
+  color: #7A7F82;
   float: right;
 }
 
@@ -52,9 +67,9 @@ textarea{
 }
 
 input[type=text]:focus{
-  border: 3px solid red;
+  border: 3px solid #7A7F82;
 }
 
 textarea:focus{
-  border: 3px solid red;
+  border: 3px solid #7A7F82;
 }

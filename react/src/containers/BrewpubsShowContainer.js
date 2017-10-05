@@ -8,29 +8,45 @@ class BrewpubsShowContainer extends Component {
     super(props);
     this.state = {
       brewpub: {},
-      reviews: []
+      reviews: [],
+      rating: null,
+      currentUser: null
     }
     this.addReview = this.addReview.bind(this)
+    this.aggregateReview = this.aggregateReview.bind(this)
+    this.deleteBrewpub = this.deleteBrewpub.bind(this)
+  }
+
+  aggregateReview(){
+    setTimeout(function(){let path = location.pathname
+      fetch(`/api/v1/${path}/`)
+      .then(response => {
+        return response.json();
+      })
+      .then(body => {
+        this.setState({
+          brewpub: body[0],
+          reviews: body[1],
+          rating: body[2]
+        })
+      })}.bind(this), 100)
   }
 
   addReview(formPayload) {
     let path = location.pathname
     fetch(`/api/v1/${path}/reviews`, {
+      credentials: 'same-origin',
       method: 'POST',
       body: JSON.stringify(formPayload)
     })
-    .then(response => {
-      let newReview = response.json()
-      return newReview
-    })
-    .then(newReview => {
-      this.setState({ reviews: [newReview, ...this.state.reviews] })
-    })
+    this.aggregateReview()
   }
 
   componentDidMount(){
     let path = location.pathname
-    fetch(`/api/v1/${path}/`)
+    fetch(`/api/v1/${path}/`, {
+      credentials: 'same-origin'
+    })
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -43,13 +59,31 @@ class BrewpubsShowContainer extends Component {
     .then(body => {
       this.setState({
         brewpub: body[0],
-        reviews: body[1]
+        reviews: body[1],
+        rating: body[2],
+        currentUser: body[3]
       })
     })
     .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  deleteBrewpub(){
+    let path = location.pathname
+    fetch(`/api/v1/${path}`, {
+      credentials: 'same-origin',
+      method: 'DELETE'
+    })
+  }
+
   render() {
+
+    let deleteButton;
+    if(this.state.currentUser != null){
+      if(this.state.currentUser.id == this.state.brewpub.user_id || this.state.currentUser.admin == true){
+        deleteButton = <input type='button' value='Delete this Brewpub' onClick={this.deleteBrewpub} />
+      }
+    }
+
     let reviewComponents = this.state.reviews.map((review) => {
       return (
         <ReviewComponent
@@ -58,6 +92,9 @@ class BrewpubsShowContainer extends Component {
           rating = {review.rating}
           header = {review.header}
           body = {review.body}
+          aggregateReview = {this.aggregateReview}
+          currentUser = {this.state.currentUser}
+          userId = {review.user_id}
         />
       )
     })
@@ -87,11 +124,18 @@ class BrewpubsShowContainer extends Component {
           twitter_url = {this.state.brewpub.twitter_url}
           instagram_url = {this.state.brewpub.instagram_url}
         />
+        {deleteButton}
+        <hr />
+        <div className="rating">
+          BrewReview Score: {this.state.rating}
+        </div>
         <hr />
         <h1>Reviews</h1>
         {reviewComponents}
         <hr />
-        <ReviewForm brewpubId={this.state.brewpub.id} submitFunction={this.addReview}/>
+        <div className="review-form">
+          <ReviewForm brewpubId={this.state.brewpub.id} submitFunction={this.addReview}/>
+        </div>
       </div>
     )
   }

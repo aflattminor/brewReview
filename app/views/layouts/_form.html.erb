@@ -1,71 +1,66 @@
-<%= form_for @brewpub do |f| %>
-  <div class="row">
-    <%= f.label :name %>
-    <%= f.text_field :name %><br />
-  </div>
-  <div class="row">
-    <%= f.label :address %>
-    <%= f.text_field :address %><br />
-  </div>
-  <div class="row">
-    <%= f.label :city %>
-    <%= f.text_field :city %><br/>
-  </div>
-  <div class="row">
-    <%= f.label :state %>
-    <%= f.text_field :state %><br />
-  </div>
-  <div class="row">
-    <%= f.label :zip %>
-    <%= f.text_field :zip %><br />
-  </div>
-  <div class="row">
-    <%= f.label :description %>
-    <%= f.text_field :description %><br />
-  </div>
-  <div class="row">
-    <%= f.label :website_url, "Website" %>
-    <%= f.text_field :website_url %><br />
-  </div>
-    <%= f.label :img_url, "Image"  %>
-    <%= f.text_field :img_url %><br />
-  <div class="row">
-    <%= f.label :logo_url, "Logo" %>
-    <%= f.text_field :logo_url %><br />
-  </div>
-  <div class="row">
-    <%= f.label :phone_number, "Phone Number" %>
-    <%= f.text_field :phone_number %><br />
-  </div>
-  <div class="row">
-    <%= f.label :contact_email, "Contact Email" %>
-    <%= f.text_field :contact_email %><br />
-  </div>
-  <div class="row">
-    <%= f.label :hours, 'Hours (Optional)' %>
-    <%= f.text_field :hours %><br />
-  </div>
-  <div class="row">
-    <%= f.label :beers, 'Beers (Optional)' %>
-    <%= f.text_field :beers %><br />
-  </div>
-  <div class="row">
-    <%= f.label :tours,  'Tours (Optional)'%>
-    <%= f.text_field :tours %><br />
-  </div>
-  <div class="row">
-    <%= f.label :facebook_url, 'Facebook (Optional)' %>
-    <%= f.text_field :facebook_url %><br />
-  </div>
-  <div class="row">
-    <%= f.label :twitter_url, "Twitter (Optional)" %>
-    <%= f.text_field :twitter_url %><br />
-  </div>
-  <div class="row">
-    <%= f.label :instagram_url, "Instagram (Optional)" %>
-    <%= f.text_field :instagram_url %><br />
-  </div>
-  <div class="actions">
-  <%= f.submit "Add Brewpub" %>
-  </div>
-<% end %>
+<div class='add-pub-form'>
+  <br />
+  <%= form_for @brewpub do |f| %>
+    <div class= 'required-fields'>
+      <% f.label :name %>
+      <%= f.text_field :name, placeholder: "Name" %><br />
+
+      <% f.label :address %>
+      <%= f.text_field :address, placeholder: "Address" %><br />
+
+      <% f.label :city %>
+      <%= f.text_field :city, placeholder: "City" %><br/>
+
+      <% f.label :state %>
+      <%= f.text_field :state, placeholder: "State" %><br />
+
+      <% f.label :zip %>
+      <%= f.text_field :zip, placeholder: "Zip Code" %><br />
+
+      <% f.label :website_url %>
+      <%= f.text_field :website_url, placeholder: "Website URL" %><br />
+
+      <% f.label :img_url %>
+      <%= f.text_field :img_url, placeholder: "Image (URL)" %><br />
+
+      <% f.label :logo_url %>
+      <%= f.text_field :logo_url, placeholder: "Logo (URL)" %><br />
+
+      <% f.label :phone_number %>
+      <%= f.text_field :phone_number, placeholder: "Phone Number" %><br />
+
+      <% f.label :contact_email %>
+      <%= f.text_field :contact_email, placeholder: "Contact e-mail" %><br />
+
+      <% f.label :description %>
+      <%= f.text_area :description, placeholder: "Description" %><br />
+    </div>
+
+      <h2> Optional</h2>
+      <div class="optional-fields">
+
+      <% f.label :hours %>
+      <%= f.text_field :hours, placeholder: "Hours of Operation" %><br />
+
+      <% f.label :beers %>
+      <%= f.text_field :beers, placeholder: "Signature Beers" %><br />
+
+      <% f.label :tours %>
+      <%= f.text_field :tours, placeholder: "Tour Information" %><br />
+
+      <% f.label :facebook_url %>
+      <%= f.text_field :facebook_url, placeholder: "Facebook (URL)" %><br />
+
+      <% f.label :twitter_url %>
+      <%= f.text_field :twitter_url, placeholder: "Twitter (URL)" %><br />
+
+      <% f.label :instagram_url %>
+      <%= f.text_field :instagram_url, placeholder: "Instagram(URL)" %><br />
+    </div>
+
+      <div>
+        <% f.submit %>
+        <button class="button">Add Brewpub</button>
+      </div>
+  <% end %>
+</div>
